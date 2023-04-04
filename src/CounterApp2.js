@@ -1,46 +1,38 @@
-// import { useContext } from "react";
-// import { CounterContext } from "./CounterContext";
-
-// function CounterApp2() {
-//     const { counter, incrementCounter } = useContext(CounterContext);
-//     return (
-//         <>
-//             <div>
-//                 Counter
-//             </div>
-//             <div>
-//                 {counter}
-//             </div>
-//             <button onClick={incrementCounter}>Increment</button>
-//         </>
-//     );
-// }
-
-// export default CounterApp2;
-
 import React from "react";
-import { CounterContext } from "./CounterContext";
+import { store } from "./store";
+import { useEffect, useState } from "react";
 
-class CounterApp2 extends React.Component {
-    render() {
-        return (
-            <>
-                <div>
-                    Counter
-                </div>
-                <div>
-                    {this.context.counter}
-                </div>
-
-                <button onClick={this.context.incrementCounter}>
-                    Increment
-                </button>
-            </>
-        );
+const CounterApp2 = () => {
+    const [counter, setCounter] = useState(0);
+    const incrementCounter = () => {
+        store.dispatch({ type: "counter/incremented" })
     }
+    const decrementCounter = () => {
+        store.dispatch({ type: "counter/decremented" })
+    }
+    useEffect(() => {
+        store.subscribe(() => {
+            const { value } = store.getState();
+            setCounter(value);
+        });
+    }, []);
+    return (
+        <>
+            <div>
+                Counter 2
+            </div>
+            <div>
+                {counter}
+            </div>
 
+            <button onClick={incrementCounter}>
+                Increment
+            </button>
+            <button onClick={decrementCounter}>
+                Decrement
+            </button>
+        </>
+    );
 }
 
-CounterApp2.contextType = CounterContext;
 export default CounterApp2;
-
