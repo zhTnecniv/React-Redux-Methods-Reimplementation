@@ -1,18 +1,24 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { connect } from "react-redux";
 
-const CounterApp1 = () => {
-    const counter = useSelector(state => state.value);
-    return (
-        <>
-            <div>
-                Counter 1
-            </div>
-            <div>
-                {counter}
-            </div>
-        </>
-    );
+class CounterApp1 extends React.Component {
+    render() {
+        const { counter } = this.props;
+        return (
+            <>
+                <div>
+                    Counter 1
+                </div>
+                <div>
+                    {counter}
+                </div>
+            </>
+        );
+    }
 }
 
-export default CounterApp1;
+const mapStateToProps = (state, ownProps) => ({
+    counter: state.value
+});
+
+export default connect(mapStateToProps)(CounterApp1);
