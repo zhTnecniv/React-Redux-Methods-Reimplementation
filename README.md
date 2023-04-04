@@ -69,6 +69,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-# Redux-Example
-# React-Redux-Function-Component-Example
-# React-Redux-Class-Component-Example
+# React-Redux-Methods-Reimplementation

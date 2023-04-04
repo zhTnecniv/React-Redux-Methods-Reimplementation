@@ -1,4 +1,5 @@
-import { createStore } from "redux";
+// import { createStore } from "redux";
+import { myCreateStore } from "./myCreateStore";
 
 function counterReducer(state = { value: 0 }, action) {
     switch (action.type) {
@@ -11,4 +12,4 @@ function counterReducer(state = { value: 0 }, action) {
     }
 }
 
-export let store = createStore(counterReducer);
+export let store = myCreateStore(counterReducer);

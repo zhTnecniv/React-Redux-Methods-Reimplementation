@@ -1,5 +1,6 @@
 import React from "react";
-import { connect } from "react-redux";
+// import myConnect from "./myConnect";
+import myConnect from "./myConnect";
 
 class CounterApp2 extends React.Component {
     render() {
@@ -33,4 +34,4 @@ const mapDispatchToProps = (dispatch) => ({
     decrementCounter: () => dispatch({ type: "counter/decremented" })
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(CounterApp2);
+export default myConnect(mapStateToProps, mapDispatchToProps)(CounterApp2);

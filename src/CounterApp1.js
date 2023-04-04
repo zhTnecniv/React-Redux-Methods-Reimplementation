@@ -1,5 +1,6 @@
 import React from "react";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
+import myConnect from "./myConnect";
 
 class CounterApp1 extends React.Component {
     render() {
@@ -21,4 +22,4 @@ const mapStateToProps = (state, ownProps) => ({
     counter: state.value
 });
 
-export default connect(mapStateToProps)(CounterApp1);
+export default myConnect(mapStateToProps)(CounterApp1);
