@@ -1,21 +1,15 @@
 import React from "react";
-import { store } from "./store";
-import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 const CounterApp2 = () => {
-    const [counter, setCounter] = useState(0);
+    const counter = useSelector(state => state.value);
+    const dispatch = useDispatch();
     const incrementCounter = () => {
-        store.dispatch({ type: "counter/incremented" })
+        dispatch({ type: "counter/incremented" })
     }
     const decrementCounter = () => {
-        store.dispatch({ type: "counter/decremented" })
+        dispatch({ type: "counter/decremented" })
     }
-    useEffect(() => {
-        store.subscribe(() => {
-            const { value } = store.getState();
-            setCounter(value);
-        });
-    }, []);
     return (
         <>
             <div>

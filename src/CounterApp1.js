@@ -1,18 +1,8 @@
 import React from "react";
-import { store } from "./store";
-import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const CounterApp1 = () => {
-
-    const [counter, setCounter] = useState(0);
-
-    useEffect(() => {
-        store.subscribe(() => {
-            const { value } = store.getState();
-            setCounter(value);
-        });
-    }, []);
-
+    const counter = useSelector(state => state.value);
     return (
         <>
             <div>

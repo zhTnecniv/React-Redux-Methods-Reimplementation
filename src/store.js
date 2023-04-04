@@ -11,5 +11,4 @@ function counterReducer(state = { value: 0 }, action) {
     }
 }
 
-
 export let store = createStore(counterReducer);
